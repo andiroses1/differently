@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skool Community — Brand Without Losing Your Essence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --black: #0a0a0a;
+      --white: #fafafa;
+      --cream: #f5f2eb;
+      --accent: #e84a8a;
+      --accent-light: #fce4ef;
+      --muted: #6b6b6b;
+      --success: #22c55e;
+    }
+    
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: var(--cream);
+      color: var(--black);
+      line-height: 1.6;
+      font-size: 18px;
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Header */
+    header {
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    
+    .nav-link {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--black);
+      text-decoration: none;
+      padding: 8px 16px;
+      border: 1px solid var(--black);
+      transition: all 0.2s ease;
+    }
+    
+    .nav-link:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+    
+    /* Hero */
+    .hero {
+      padding: 80px 0 100px;
+      position: relative;
+    }
+    
+    .headline {
+      font-size: clamp(36px, 6vw, 58px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+      max-width: 800px;
+    }
+    
+    .headline .accent {
+      color: var(--accent);
+    }
+    
+    .tagline {
+      font-size: 20px;
+      color: var(--muted);
+      max-width: 600px;
+      line-height: 1.6;
+      margin-bottom: 48px;
+    }
+    
+    .target-box {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      padding: 20px 32px;
+    }
+    
+    .target-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.6;
+      margin-bottom: 4px;
+    }
+    
+    .target-value {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    
+    .target-sub {
+      font-size: 16px;
+      opacity: 0.7;
+      margin-top: 4px;
+    }
+    
+    /* Sections */
+    section {
+      padding: 80px 0;
+    }
+    
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 40px;
+      border-bottom: 2px solid var(--black);
+      padding-bottom: 16px;
+    }
+    
+    .section-number {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    
+    .section-title {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    
+    /* Difference Grid */
+    .difference-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    
+    @media (max-width: 700px) {
+      .difference-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .diff-column {
+      padding: 32px;
+    }
+    
+    .diff-column.bad {
+      background: #e8e8e8;
+    }
+    
+    .diff-column.good {
+      background: var(--black);
+      color: var(--white);
+    }
+    
+    .diff-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0.6;
+    }
+    
+    .diff-list {
+      list-style: none;
+    }
+    
+    .diff-list li {
+      font-size: 16px;
+      margin-bottom: 12px;
+      padding-left: 24px;
+      position: relative;
+    }
+    
+    .diff-list li::before {
+      content: '×';
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: var(--muted);
+    }
+    
+    .diff-column.good .diff-list li::before {
+      content: '→';
+      color: var(--accent);
+    }
+    
+    /* Callout */
+    .callout {
+      background: linear-gradient(135deg, #e84a8a 0%, #f472b6 100%);
+      color: var(--white);
+      padding: 32px 40px;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+    
+    .callout strong {
+      font-weight: 700;
+    }
+    
+    /* Pricing */
+    .pricing-intro {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      max-width: 500px;
+    }
+    
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    
+    @media (max-width: 800px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 500px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .tier {
+      padding: 24px;
+      text-align: center;
+      border: 2px solid #e0e0e0;
+      background: var(--white);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .tier:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    
+    .tier.selected {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+    
+    .tier-price {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .tier-members {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      opacity: 0.7;
+    }
+    
+    .tier-conversion {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      margin-top: 8px;
+      opacity: 0.5;
+    }
+    
+    .pricing-note {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    
+    .pricing-calculator {
+      margin-top: 32px;
+      padding: 24px;
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+    }
+    
+    .calc-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    
+    .calc-result {
+      font-size: 24px;
+      font-weight: 700;
+    }
+    
+    /* Structure */
+    .structure-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 2px solid var(--black);
+      margin-bottom: 32px;
+    }
+    
+    @media (max-width: 700px) {
+      .structure-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .structure-box {
+      padding: 32px;
+    }
+    
+    .structure-box.free {
+      background: var(--cream);
+      border-right: 2px solid var(--black);
+    }
+    
+    @media (max-width: 700px) {
+      .structure-box.free {
+        border-right: none;
+        border-bottom: 2px solid var(--black);
+      }
+    }
+    
+    .structure-box.paid {
+      background: var(--white);
+    }
+    
+    .structure-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .structure-label .price {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    
+    .structure-list {
+      list-style: none;
+    }
+    
+    .structure-list li {
+      font-size: 17px;
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+    
+    .structure-list li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
+    
+    .structure-box.paid .structure-list li::before {
+      content: '✓';
+      color: var(--success);
+      font-size: 15px;
+    }
+    
+    /* Timeline - Horizontal */
+    .timeline {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      padding: 40px 0 20px;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--black);
+    }
+    
+    .timeline-item {
+      position: relative;
+      flex: 1;
+      text-align: center;
+      padding: 0 16px;
+    }
+    
+    .timeline-dot {
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 18px;
+      height: 18px;
+      background: var(--white);
+      border: 3px solid var(--black);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 2;
+    }
+    
+    .timeline-item:hover .timeline-dot {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateX(-50%) scale(1.15);
+    }
+    
+    .timeline-time {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-top: 20px;
+      font-weight: 600;
+    }
+    
+    .timeline-brief {
+      font-size: 16px;
+      color: var(--muted);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    
+    .timeline-brief strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    
+    .timeline-popup {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-16px);
+      background: var(--black);
+      color: var(--white);
+      padding: 10px 14px;
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s ease;
+      z-index: 10;
+    }
+    
+    .timeline-popup::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: var(--black);
+    }
+    
+    .timeline-item:hover .timeline-popup {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(-10px);
+    }
+    
+    @media (max-width: 700px) {
+      .timeline {
+        flex-direction: column;
+        padding: 20px 0 20px 20px;
+      }
+      
+      .timeline::before {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: auto;
+        width: 3px;
+        height: auto;
+      }
+      
+      .timeline-item {
+        text-align: left;
+        padding: 0 0 32px 40px;
+      }
+      
+      .timeline-dot {
+        top: 4px;
+        left: -8px;
+        transform: none;
+      }
+      
+      .timeline-item:hover .timeline-dot {
+        transform: scale(1.15);
+      }
+      
+      .timeline-time {
+        margin-top: 0;
+      }
+      
+      .timeline-popup {
+        display: none;
+      }
+    }
+    
+    /* Growth Layers */
+    .growth-stack {
+      margin-bottom: 32px;
+    }
+    
+    .growth-layer {
+      display: grid;
+      grid-template-columns: 100px 1fr 140px;
+      align-items: center;
+      padding: 16px 20px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    @media (max-width: 600px) {
+      .growth-layer {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+    }
+    
+    .growth-layer:first-child {
+      background: #fce4ef;
+    }
+    
+    .growth-layer:first-child .growth-name {
+      color: var(--accent);
+    }
+    
+    .growth-layer:nth-child(2) {
+      background: #f9d1e3;
+    }
+    
+    .growth-layer:nth-child(3) {
+      background: #f5bed7;
+    }
+    
+    .growth-layer:nth-child(4) {
+      background: #f0abcb;
+    }
+    
+    .growth-name {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    
+    .growth-desc {
+      font-size: 17px;
+    }
+    
+    .growth-price {
+      font-size: 17px;
+      font-weight: 700;
+      text-align: right;
+    }
+    
+    @media (max-width: 600px) {
+      .growth-price {
+        text-align: left;
+      }
+    }
+    
+    /* Scaling Phases */
+    .scaling-phases {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .scaling-phase {
+      border-left: 3px solid var(--black);
+      padding-left: 24px;
+    }
+    
+    .scaling-phase:hover {
+      border-left-color: var(--accent);
+    }
+    
+    .scaling-phase-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    
+    .scaling-phase-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: var(--black);
+      color: var(--white);
+      padding: 4px 10px;
+    }
+    
+    .scaling-phase-time {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    
+    .scaling-phase-content p {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    
+    .scaling-phase-content strong {
+      font-weight: 700;
+    }
+    
+    .scaling-note {
+      font-size: 16px;
+      color: var(--muted);
+    }
+    
+    /* Bottom Line */
+    .bottom-line {
+      background: var(--black);
+      color: var(--white);
+      padding: 48px;
+      text-align: center;
+    }
+    
+    .bottom-line-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: 12px;
+    }
+    
+    .bottom-line-main {
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    
+    .bottom-line-sub {
+      font-size: 16px;
+      opacity: 0.7;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Footer */
+    footer {
+      padding: 32px 0;
+      text-align: center;
+    }
+    
+    footer p {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="logo">Skool Community</div>
+      <a href="#pricing" class="nav-link">See Pricing</a>
+    </header>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="headline">
+        Brand without losing your <span class="accent">essence.</span><br>
+        Business without the <span class="accent">bullshit.</span>
+      </h1>
+      <p class="tagline">A community for creatives who refuse to flatten their work for the algorithm — with founders present 5 days a week, not another ghost-town course platform.</p>
+      
+      <div class="target-box">
+        <div class="target-label">Revenue Target</div>
+        <div class="target-value">$20k/mo</div>
+        <div class="target-sub">Two partners × $10k each</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Makes This Different -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">01</span>
+        <h2 class="section-title">What Makes This Different</h2>
+      </div>
+      
+      <div class="difference-grid">
+        <div class="diff-column bad">
+          <div class="diff-label">Most Communities</div>
+          <ul class="diff-list">
+            <li>Glorified course platforms</li>
+            <li>Dead forums nobody checks</li>
+            <li>Pre-recorded content only</li>
+            <li>Founders vanish after launch</li>
+            <li>Generic advice that ignores how creatives work</li>
+          </ul>
+        </div>
+        <div class="diff-column good">
+          <div class="diff-label">This Community</div>
+          <ul class="diff-list">
+            <li>Live founder presence 5 days/week</li>
+            <li>Mentorship woven into daily interaction</li>
+            <li>Learn alongside peers navigating the same challenges</li>
+            <li>Real-time feedback on your actual work</li>
+            <li>A room where "is this bullshit?" gets an honest answer</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="callout">
+        At <strong>5 hours/week</strong> of live access, a $147/month membership costs <strong>$7.35 per hour</strong> of founder availability — before counting community learning and content.
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <h2 class="section-title">The Math</h2>
+      </div>
+      
+      <p class="pricing-intro">With 2,500+ warm audience, you need 5-7% conversion. Click a price point to see the math:</p>
+      
+      <div class="pricing-grid">
+        <div class="tier" data-price="97" data-members="212" data-conversion="8.5">
+          <div class="tier-price">$97</div>
+          <div class="tier-members">212 members</div>
+          <div class="tier-conversion">8.5% conversion</div>
+        </div>
+        <div class="tier selected" data-price="127" data-members="162" data-conversion="6.5">
+          <div class="tier-price">$127</div>
+          <div class="tier-members">162 members</div>
+          <div class="tier-conversion">6.5% conversion</div>
+        </div>
+        <div class="tier" data-price="147" data-members="140" data-conversion="5.6">
+          <div class="tier-price">$147</div>
+          <div class="tier-members">140 members</div>
+          <div class="tier-conversion">5.6% conversion</div>
+        </div>
+        <div class="tier" data-price="197" data-members="105" data-conversion="4.2">
+          <div class="tier-price">$197</div>
+          <div class="tier-members">105 members</div>
+          <div class="tier-conversion">4.2% conversion</div>
+        </div>
+      </div>
+      
+      <p class="pricing-note">→ Recommended: Launch at $127 founding rate, move to $147-177 after first 50-75 members lock in.</p>
+      
+      <div class="pricing-calculator">
+        <div class="calc-label">Monthly Revenue at Selected Price</div>
+        <div class="calc-result" id="calc-result">$20,574/month with 162 members</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Structure -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <h2 class="section-title">Freemium Structure</h2>
+      </div>
+      
+      <div class="structure-grid">
+        <div class="structure-box free">
+          <div class="structure-label">
+            <span>Free Tier</span>
+            <span class="price">$0</span>
+          </div>
+          <ul class="structure-list">
+            <li>Community discussions</li>
+            <li>101 intro content</li>
+            <li>Weekly group threads</li>
+            <li>Proof that we get it</li>
+          </ul>
+        </div>
+        <div class="structure-box paid">
+          <div class="structure-label">
+            <span>Paid Tier</span>
+            <span class="price">$127-177/mo</span>
+          </div>
+          <ul class="structure-list">
+            <li>Daily live access to founders</li>
+            <li>Real-time feedback on your work</li>
+            <li>Peer mentorship and collaboration</li>
+            <li>Access to courses + ability to beta test and request topics</li>
+            <li>Accountability structures</li>
+          </ul>
+        </div>
+      </div>
+      
+      <p class="pricing-note">The gap isn't information — it's implementation, access, and a room that speaks your language.</p>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">04</span>
+        <h2 class="section-title">Launch Timeline</h2>
+      </div>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-popup">Warm audience invited, feedback loop begins</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">Week 1</div>
+          <div class="timeline-brief">Free community goes live. Beta cohort starts testing content and providing feedback.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-popup">Identify hot leads through participation</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">Weeks 2–4</div>
+          <div class="timeline-brief">101 content drops. Engagement builds. Collect testimonials from beta cohort.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-popup">Early believers lock in lower rate</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">Weeks 5–6</div>
+          <div class="timeline-brief">Paid tier opens with founding member pricing.<br><strong>Target: 100 members = $10-12k/mo</strong></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-popup">Refine based on what's working</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">Month 3</div>
+          <div class="timeline-brief">Raise price for new members. Scale to 150-200 paid.<br><strong>Target: $20k/month</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Revenue Layers -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">05</span>
+        <h2 class="section-title">Revenue Layers</h2>
+      </div>
+      
+      <p class="pricing-intro">Daily presence reveals what people actually need. Courses emerge from real demand — no guessing.</p>
+      
+      <div class="growth-stack">
+        <div class="growth-layer">
+          <div class="growth-name">Base</div>
+          <div class="growth-desc">Community membership (the engine)</div>
+          <div class="growth-price">$127-177/mo</div>
+        </div>
+        <div class="growth-layer">
+          <div class="growth-name">Layer 1</div>
+          <div class="growth-desc">Standalone courses built from repeated questions</div>
+          <div class="growth-price">$297-497</div>
+        </div>
+        <div class="growth-layer">
+          <div class="growth-name">Layer 2</div>
+          <div class="growth-desc">Cohort intensives (Brand Unfucking, etc.)</div>
+          <div class="growth-price">$997-1,497</div>
+        </div>
+        <div class="growth-layer">
+          <div class="growth-name">Layer 3</div>
+          <div class="growth-desc">High-touch / VIP access for those who want more</div>
+          <div class="growth-price">$497-997/mo</div>
+        </div>
+      </div>
+      
+      <p class="pricing-note">We're not building courses and praying. We're building relationships and letting products emerge from what people actually ask for.</p>
+    </div>
+  </section>
+
+  <!-- Scaling Access -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">06</span>
+        <h2 class="section-title">Scaling Access Over Time</h2>
+      </div>
+      
+      <p class="pricing-intro">Daily presence is the draw. As demand grows, it becomes the premium.</p>
+      
+      <div class="scaling-phases">
+        <div class="scaling-phase">
+          <div class="scaling-phase-header">
+            <span class="scaling-phase-label">Phase 1</span>
+            <span class="scaling-phase-time">Months 1-6</span>
+          </div>
+          <div class="scaling-phase-content">
+            <p><strong>Daily office hours included</strong> in base membership at $127-147/mo</p>
+            <p class="scaling-note">This is the differentiator. Show up, build trust, prove the value.</p>
+          </div>
+        </div>
+        <div class="scaling-phase">
+          <div class="scaling-phase-header">
+            <span class="scaling-phase-label">Phase 2</span>
+            <span class="scaling-phase-time">Months 6-12</span>
+          </div>
+          <div class="scaling-phase-content">
+            <p><strong>Daily access moves to higher tier</strong> at $297-497/mo</p>
+            <p class="scaling-note">Base membership gets 1-2x/week group calls or async-only access.</p>
+          </div>
+        </div>
+        <div class="scaling-phase">
+          <div class="scaling-phase-header">
+            <span class="scaling-phase-label">Phase 3</span>
+            <span class="scaling-phase-time">Year 2+</span>
+          </div>
+          <div class="scaling-phase-content">
+            <p><strong>Daily access becomes capped or application-only</strong> at $997+/mo</p>
+            <p class="scaling-note">Early members at $127 become your best testimonials — they got the thing before it was scarce.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom Line -->
+  <div class="bottom-line">
+    <div class="container">
+      <div class="bottom-line-label">The Bottom Line</div>
+      <div class="bottom-line-main">140-160 members at $127-147/month = $20,000/month</div>
+      <div class="bottom-line-sub">With 2,500+ warm audience, that's 5-7% conversion — achievable within 90 days with daily presence and a clear offer.</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>January 2025</p>
+    </div>
+  </footer>
+
+  <script>
+    // Pricing tier selection
+    const tiers = document.querySelectorAll('.tier');
+    const calcResult = document.getElementById('calc-result');
+    
+    tiers.forEach(tier => {
+      tier.addEventListener('click', () => {
+        // Remove selected from all
+        tiers.forEach(t => t.classList.remove('selected'));
+        // Add selected to clicked
+        tier.classList.add('selected');
+        
+        // Update calculator
+        const price = tier.dataset.price;
+        const members = tier.dataset.members;
+        const revenue = price * members;
+        
+        calcResult.textContent = `$${revenue.toLocaleString()}/month with ${members} members`;
+      });
+    });
+  </script>
+
+</body>
+</html>
