@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me — Andi Albreath</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --black: #0a0a0a;
+      --white: #fafafa;
+      --cream: #f5f2eb;
+      --accent: #e84a8a;
+      --accent-light: #fce4ef;
+      --muted: #6b6b6b;
+      --success: #22c55e;
+    }
+    
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: var(--cream);
+      color: var(--black);
+      line-height: 1.6;
+      font-size: 18px;
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Header */
+    header {
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    
+    .nav-link {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--black);
+      text-decoration: none;
+      padding: 8px 16px;
+      border: 1px solid var(--black);
+      transition: all 0.2s ease;
+    }
+    
+    .nav-link:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+    
+    /* Hero */
+    .hero {
+      padding: 80px 0 100px;
+      position: relative;
+    }
+    
+    .headline {
+      font-size: clamp(36px, 6vw, 58px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+      max-width: 800px;
+    }
+    
+    .headline .accent {
+      color: var(--accent);
+    }
+    
+    .intro-text {
+      font-size: 20px;
+      color: var(--black);
+      max-width: 800px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    
+    /* Sections */
+    section {
+      padding: 80px 0;
+    }
+    
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 40px;
+      border-bottom: 2px solid var(--black);
+      padding-bottom: 16px;
+    }
+    
+    .section-number {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    
+    .section-title {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    
+    .content-block {
+      max-width: 800px;
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    
+    /* Callout */
+    .callout {
+      background: linear-gradient(135deg, #e84a8a 0%, #f472b6 100%);
+      color: var(--white);
+      padding: 32px 40px;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.5;
+      margin: 40px 0;
+    }
+    
+    .callout strong {
+      font-weight: 700;
+    }
+    
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    
+    @media (max-width: 700px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .skill-box {
+      padding: 32px;
+      background: var(--white);
+      border-left: 4px solid var(--accent);
+    }
+    
+    .skill-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      color: var(--muted);
+    }
+    
+    .skill-list {
+      list-style: none;
+    }
+    
+    .skill-list li {
+      font-size: 17px;
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+    
+    .skill-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    
+    /* Experience Sections */
+    .experience-section {
+      margin-bottom: 48px;
+    }
+    
+    .experience-header {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    
+    .experience-list {
+      list-style: none;
+      max-width: 800px;
+    }
+    
+    .experience-list li {
+      font-size: 17px;
+      margin-bottom: 12px;
+      padding-left: 24px;
+      position: relative;
+      line-height: 1.6;
+    }
+    
+    .experience-list li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--accent);
+    }
+    
+    /* Bottom Line */
+    .bottom-line {
+      background: var(--black);
+      color: var(--white);
+      padding: 48px;
+      text-align: center;
+    }
+    
+    .bottom-line-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: 12px;
+    }
+    
+    .bottom-line-main {
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    
+    .bottom-line-sub {
+      font-size: 16px;
+      opacity: 0.7;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Footer */
+    footer {
+      padding: 32px 0;
+      text-align: center;
+    }
+    
+    footer p {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="logo">Andi Albreath</div>
+      <a href="#contact" class="nav-link">Get in Touch</a>
+    </header>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="headline">
+        About <span class="accent">Me</span>
+      </h1>
+      <p class="intro-text">
+        Hi, my name is Andi Albreath, most people know me as Andi Rose online. I'm 42 years old and I'm a non-binary entrepreneur, artist, musician, healer, and thinker. I have worked as a coach helping people change their brains, went to school for Chinese medicine, massage, and yoga instruction, I've produced hundreds of events — everything from fine dining experiences to circus shows on fire blowing sculptures. Over the last decade on top of marketing, branding, and business, I've also learned to produce videos and films and have trained as an audio engineer.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">01</span>
+        <h2 class="section-title">My Mission</h2>
+      </div>
+      
+      <p class="content-block">
+        I believe that when queer people are able to be heard and celebrated culturally and economically, the world becomes a better place. That work has become my mission after spending the last 6 years deeply entrenched in business, brand, and marketing study.
+      </p>
+      
+      <div class="callout">
+        This is the first time in my life I've ever segmented my work to just be with just other queer folks and I'm doing it not just because I love my community, but because I believe the philosophy that underlies our culture is one that can change the world for the better.
+      </div>
+    </div>
+  </section>
+
+  <!-- Journey -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <h2 class="section-title">My Journey</h2>
+      </div>
+      
+      <p class="content-block">
+        I got into business and marketing because having a young child in my 30's and a need to generate income collided with my very deep, but fluid, experiences working in art scenes and as a healer. I went from living in Oakland, CA to Asheville, NC and my flexibility and fluidity quickly became a disadvantage.
+      </p>
+      
+      <p class="content-block">
+        While I had worked on dozens of successful projects, won awards for my performances, helped many people with my wellness services, and produced huge works of art at festivals and venues, I actually had very little to show for it. Cellphones weren't that great still, so there wasn't a ton of footage from many of these projects and I had almost no documentation of my performances. Wellness work was great but fleeting as a yoga teacher and body worker.
+      </p>
+      
+      <p class="content-block">
+        I figured that after everything I had done, that if I could learn the skills of documentation and communication with regard to making money, that I could take those skills wherever I want after that. Both of my main areas of focus — wellness and the arts — have a long history of being bad with marketing and branding. And I think that's often because the people who are the best just do what they do best and word spreads.
+      </p>
+      
+      <p class="content-block">
+        In 2026 we live in a different world though. Sometimes it doesn't matter how good you are at something if you don't know how to communicate about it. And often it seems that people who aren't good at things, but are good at communicating about them, are making tons of money being mediocre at what they do. I want to close that gap in our community. I want us to become better leaders, communicators, and business people so that we can thrive and raise each other up while we do it.
+      </p>
+      
+      <p class="content-block">
+        I believe that our collective can and should benefit from the many years of work we've dedicated to ourselves, our work in the world, and our survival.
+      </p>
+    </div>
+  </section>
+
+  <!-- What I Bring -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <h2 class="section-title">What I Bring to the Table</h2>
+      </div>
+      
+      <p class="content-block">
+        I've been a performer, a producer, a consultant, a healer, a video director, a project manager, and about twelve other things. Each taught me something different about how to:
+      </p>
+      
+      <div class="skills-grid">
+        <div class="skill-box">
+          <div class="skill-title">Core Skills</div>
+          <ul class="skill-list">
+            <li>Build brands that feel authentic and unique</li>
+            <li>Create systems that support creative work</li>
+            <li>Lead teams that actually want to work together</li>
+          </ul>
+        </div>
+        <div class="skill-box">
+          <div class="skill-title">Hard-Won Wisdom</div>
+          <ul class="skill-list">
+            <li>Generate revenue without selling your soul</li>
+            <li>Navigate the messy space between vision and execution</li>
+            <li>Fail productively, ask better questions, and help people figure out their own answers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Things I've Done -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">04</span>
+        <h2 class="section-title">Things I've Done</h2>
+      </div>
+      
+      <div class="experience-section">
+        <h3 class="experience-header">Creative Projects & Leadership</h3>
+        <ul class="experience-list">
+          <li>Coordinated multi-state teams to build large-scale installations (the kind where you're problem-solving in 110° heat with limited resources)</li>
+          <li>Produced 200+ live shows with 35-person crews—circus, fire performance, the whole chaotic beautiful thing</li>
+          <li>Performed internationally, including a trip with Clowns Without Borders through militarized zones in Mexico</li>
+          <li>Directed, shot, and edited professional video content (because creatives need to wear multiple hats)</li>
+        </ul>
+      </div>
+      
+      <div class="experience-section">
+        <h3 class="experience-header">The Business Side (Because We Need to Eat)</h3>
+        <ul class="experience-list">
+          <li>Built an EFT practice that generated $60k in year one</li>
+          <li>Did $75k in consulting across multiple service lines—marketing, operations, creative strategy</li>
+          <li>Created media content with 500k+ combined views</li>
+          <li>Learned the hard way how to price work, find clients, and actually get paid</li>
+        </ul>
+      </div>
+      
+      <div class="experience-section">
+        <h3 class="experience-header">The Learning</h3>
+        <ul class="experience-list">
+          <li>Studied needs assessment and systems thinking in international NGOs (Portland State, self-designed program)</li>
+          <li>Trained in multiple healing modalities (because understanding people matters for leadership)</li>
+          <li>Attended leadership conferences (Mycelium, Southern Leadership Jam)</li>
+          <li>Hundreds of hours of online education in branding, marketing, video, audio, and more</li>
+          <li>Private coaching with coaches making 50k/month</li>
+          <li>Coaching communities online</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom Line -->
+  <div class="bottom-line">
+    <div class="container">
+      <div class="bottom-line-label">The Bottom Line</div>
+      <div class="bottom-line-main">I've learned how to fail productively, ask better questions, and help people figure out their own answers.</div>
+      <div class="bottom-line-sub">Now I'm here to help our community thrive—culturally, economically, and authentically.</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>Andi Albreath / Andi Rose · 2026</p>
+    </div>
+  </footer>
+
+</body>
+</html>
