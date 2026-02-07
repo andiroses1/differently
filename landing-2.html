@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Differently — Leadership for LGBTQIA+ Entrepreneurs & Creatives</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --black: #0a0a0a;
+      --white: #fafafa;
+      --cream: #f5f2eb;
+      --accent: #e84a8a;
+      --accent-light: #fce4ef;
+      --muted: #6b6b6b;
+      --success: #22c55e;
+    }
+    
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: var(--cream);
+      color: var(--black);
+      line-height: 1.6;
+      font-size: 18px;
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Header */
+    header {
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    
+    .nav-link {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--black);
+      text-decoration: none;
+      padding: 8px 16px;
+      border: 1px solid var(--black);
+      transition: all 0.2s ease;
+    }
+    
+    .nav-link:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+    
+    /* Hero */
+    .hero {
+      padding: 80px 0 100px;
+      position: relative;
+    }
+    
+    .headline {
+      font-size: clamp(36px, 6vw, 58px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+      max-width: 800px;
+    }
+    
+    .headline .accent {
+      color: var(--accent);
+    }
+    
+    .tagline {
+      font-size: 20px;
+      color: var(--muted);
+      max-width: 600px;
+      line-height: 1.6;
+      margin-bottom: 48px;
+    }
+    
+    .target-box {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      padding: 20px 32px;
+    }
+    
+    .target-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.6;
+      margin-bottom: 4px;
+    }
+    
+    .target-value {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    
+    .target-sub {
+      font-size: 16px;
+      opacity: 0.7;
+      margin-top: 4px;
+    }
+    
+    /* Sections */
+    section {
+      padding: 80px 0;
+    }
+    
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 40px;
+      border-bottom: 2px solid var(--black);
+      padding-bottom: 16px;
+    }
+    
+    .section-number {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    
+    .section-title {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    
+    .content-block {
+      max-width: 800px;
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    
+    /* Difference Grid */
+    .difference-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    
+    @media (max-width: 700px) {
+      .difference-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .diff-column {
+      padding: 32px;
+    }
+    
+    .diff-column.bad {
+      background: #e8e8e8;
+    }
+    
+    .diff-column.good {
+      background: var(--black);
+      color: var(--white);
+    }
+    
+    .diff-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0.6;
+    }
+    
+    .diff-list {
+      list-style: none;
+    }
+    
+    .diff-list li {
+      font-size: 16px;
+      margin-bottom: 12px;
+      padding-left: 24px;
+      position: relative;
+    }
+    
+    .diff-list li::before {
+      content: '×';
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: var(--muted);
+    }
+    
+    .diff-column.good .diff-list li::before {
+      content: '→';
+      color: var(--accent);
+    }
+    
+    /* Callout */
+    .callout {
+      background: linear-gradient(135deg, #e84a8a 0%, #f472b6 100%);
+      color: var(--white);
+      padding: 32px 40px;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+    
+    .callout strong {
+      font-weight: 700;
+    }
+    
+    /* Pricing */
+    .pricing-intro {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      max-width: 500px;
+    }
+    
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    
+    @media (max-width: 800px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 500px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .tier {
+      padding: 24px;
+      text-align: center;
+      border: 2px solid #e0e0e0;
+      background: var(--white);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .tier:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    
+    .tier.selected {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+    
+    .tier-price {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .tier-members {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      opacity: 0.7;
+    }
+    
+    .tier-conversion {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      margin-top: 8px;
+      opacity: 0.5;
+    }
+    
+    .pricing-note {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    
+    .pricing-calculator {
+      margin-top: 32px;
+      padding: 24px;
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+    }
+    
+    .calc-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    
+    .calc-result {
+      font-size: 24px;
+      font-weight: 700;
+    }
+    
+    /* Structure */
+    .structure-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 2px solid var(--black);
+      margin-bottom: 32px;
+    }
+    
+    @media (max-width: 700px) {
+      .structure-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .structure-box {
+      padding: 32px;
+    }
+    
+    .structure-box.free {
+      background: var(--cream);
+      border-right: 2px solid var(--black);
+    }
+    
+    @media (max-width: 700px) {
+      .structure-box.free {
+        border-right: none;
+        border-bottom: 2px solid var(--black);
+      }
+    }
+    
+    .structure-box.paid {
+      background: var(--white);
+    }
+    
+    .structure-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .structure-label .price {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    
+    .structure-list {
+      list-style: none;
+    }
+    
+    .structure-list li {
+      font-size: 17px;
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+    
+    .structure-list li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
+    
+    .structure-box.paid .structure-list li::before {
+      content: '✓';
+      color: var(--success);
+      font-size: 15px;
+    }
+    
+    /* Timeline - Horizontal */
+    .timeline {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      padding: 40px 0 20px;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--black);
+    }
+    
+    .timeline-item {
+      position: relative;
+      flex: 1;
+      text-align: center;
+      padding: 0 16px;
+    }
+    
+    .timeline-dot {
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 18px;
+      height: 18px;
+      background: var(--white);
+      border: 3px solid var(--black);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 2;
+    }
+    
+    .timeline-item:hover .timeline-dot {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateX(-50%) scale(1.15);
+    }
+    
+    .timeline-time {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-top: 20px;
+      font-weight: 600;
+    }
+    
+    .timeline-brief {
+      font-size: 16px;
+      color: var(--muted);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    
+    .timeline-brief strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    
+    .timeline-popup {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-16px);
+      background: var(--black);
+      color: var(--white);
+      padding: 10px 14px;
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s ease;
+      z-index: 10;
+    }
+    
+    .timeline-popup::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: var(--black);
+    }
+    
+    .timeline-item:hover .timeline-popup {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(-10px);
+    }
+    
+    @media (max-width: 700px) {
+      .timeline {
+        flex-direction: column;
+        padding: 20px 0 20px 20px;
+      }
+      
+      .timeline::before {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: auto;
+        width: 3px;
+        height: auto;
+      }
+      
+      .timeline-item {
+        text-align: left;
+        padding: 0 0 32px 40px;
+      }
+      
+      .timeline-dot {
+        top: 4px;
+        left: -8px;
+        transform: none;
+      }
+      
+      .timeline-item:hover .timeline-dot {
+        transform: scale(1.15);
+      }
+      
+      .timeline-time {
+        margin-top: 0;
+      }
+      
+      .timeline-popup {
+        display: none;
+      }
+    }
+    
+    /* Growth Layers */
+    .growth-stack {
+      margin-bottom: 32px;
+    }
+    
+    .growth-layer {
+      display: grid;
+      grid-template-columns: 100px 1fr 140px;
+      align-items: center;
+      padding: 16px 20px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    @media (max-width: 600px) {
+      .growth-layer {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+    }
+    
+    .growth-layer:first-child {
+      background: #fce4ef;
+    }
+    
+    .growth-layer:first-child .growth-name {
+      color: var(--accent);
+    }
+    
+    .growth-layer:nth-child(2) {
+      background: #f9d1e3;
+    }
+    
+    .growth-layer:nth-child(3) {
+      background: #f5bed7;
+    }
+    
+    .growth-layer:nth-child(4) {
+      background: #f0abcb;
+    }
+    
+    .growth-name {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    
+    .growth-desc {
+      font-size: 17px;
+    }
+    
+    .growth-price {
+      font-size: 17px;
+      font-weight: 700;
+      text-align: right;
+    }
+    
+    @media (max-width: 600px) {
+      .growth-price {
+        text-align: left;
+      }
+    }
+    
+    /* Scaling Phases */
+    .scaling-phases {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .scaling-phase {
+      border-left: 3px solid var(--black);
+      padding-left: 24px;
+    }
+    
+    .scaling-phase:hover {
+      border-left-color: var(--accent);
+    }
+    
+    .scaling-phase-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    
+    .scaling-phase-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: var(--black);
+      color: var(--white);
+      padding: 4px 10px;
+    }
+    
+    .scaling-phase-time {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    
+    .scaling-phase-content p {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    
+    .scaling-phase-content strong {
+      font-weight: 700;
+    }
+    
+    .scaling-note {
+      font-size: 16px;
+      color: var(--muted);
+    }
+    
+    /* Bottom Line */
+    .bottom-line {
+      background: var(--black);
+      color: var(--white);
+      padding: 48px;
+      text-align: center;
+    }
+    
+    .bottom-line-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: 12px;
+    }
+    
+    .bottom-line-main {
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    
+    .bottom-line-sub {
+      font-size: 16px;
+      opacity: 0.7;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Footer */
+    footer {
+      padding: 32px 0;
+      text-align: center;
+    }
+    
+    footer p {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    
+    /* CTA Button */
+    .cta-button {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      font-family: 'Quicksand', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 16px 40px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .cta-button:hover {
+      background: #d63d7a;
+      transform: translateY(-2px);
+    }
+    
+    .bottom-line .cta-button {
+      background: var(--white);
+      color: var(--accent);
+    }
+    
+    .bottom-line .cta-button:hover {
+      background: var(--cream);
+    }
+    
+    /* Sticky Bottom CTA Bar */
+    .sticky-cta-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--cream);
+      color: var(--black);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.08);
+      z-index: 1000;
+      border-top: 1px solid #e0e0e0;
+    }
+    
+    .sticky-cta-content {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex: 1;
+    }
+    
+    .sticky-cta-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    
+    .sticky-cta-price {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    
+    .sticky-cta-bar .cta-button {
+      padding: 8px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+    
+    .sticky-cta-bar .cta-button:hover {
+      background: var(--accent-light);
+      transform: none;
+    }
+    
+    @media (max-width: 700px) {
+      .sticky-cta-bar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 16px;
+      }
+      
+      .sticky-cta-content {
+        flex-direction: column;
+        gap: 4px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="logo">Differently</div>
+      <a href="#join" class="nav-link">Join Now</a>
+    </header>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="headline">
+        When queer people are heard and celebrated <span class="accent">culturally and economically,</span><br>
+        the world becomes a <span class="accent">better place.</span>
+      </h1>
+      <p class="tagline">That's why Differently exists — an international leadership community for 2sLGBTQIA+ entrepreneurs and creatives building businesses and doing work that honors who they actually are, not who the algorithm wants them to be.</p>
+    </div>
+  </section>
+
+  <!-- Who This Is For -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">01</span>
+        <h2 class="section-title">Who This Is For</h2>
+      </div>
+      
+      <p class="content-block">
+        We're doing this work because we love our community and deeply believe that when queer people thrive economically, the world around us does too. And it's not just speculation, there's actually a lot of data that shows when women and other minority groups gain economic advantage, they do more for their communities with their wealth than non-marginalized folks. We believe the philosophy that underlies queer culture is one that can change the world for the better, and that when 2sLGBTQIA+ people are able to be heard and celebrated culturally and economically, everyone benefits.
+      </p>
+      
+      <p class="content-block">
+        You've probably built something already — maybe multiple somethings. You have skills, experience, and work you're proud of. But somewhere between having the talent and building the business, the typical playbook stops making sense.
+      </p>
+      
+      <p class="content-block">
+        You might have noticed that most business advice assumes you want to be neutral, palatable, or "professional" in ways that erase the very things that make your work interesting. You may have tried to follow the templates and felt like you were disappearing in the process.
+      </p>
+      
+      <p class="content-block">
+        This community is for 2sLGBTQIA+ entrepreneurs and creatives who refuse to flatten themselves for market fit — and who want to learn how to thrive without sacrificing what makes them whole.
+      </p>
+    </div>
+  </section>
+
+  <!-- What This Isn't -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <h2 class="section-title">What This Isn't</h2>
+      </div>
+      
+      <p class="content-block">
+        Differently rejects the notion that you can copy and paste brand and business strategies across people. In a lot of professional spaces the word leadership can carry a connotation of adopting a professional persona that has little to do with who you actually are. The goal is to fit into existing templates rather than building something that reflects your full complexity. Often that goal is created by the business owner offering services because there's a culture of thinking that if it worked for me this way, it will work for you.
+      </p>
+      
+      <p class="content-block">
+        We do not offer a one size fits all solution, or a quick fix for your business. This space is built in the spirit of discovering what makes each of us shine, with the understanding that the combination of things that add up to a brand image that feels right will be different for each of us. Leadership, community, and connectedness are the skills that will help us to see and celebrate these things about ourselves and get them out into the world.
+      </p>
+      
+      <p class="content-block">
+        This isn't about learning to code-switch better or package yourself for mass appeal. It's about building economic power while staying whole — which requires different strategies, frameworks, and honest conversations about what it actually takes.
+      </p>
+      
+      <div class="difference-grid">
+        <div class="diff-column bad">
+          <div class="diff-label">This Is Not</div>
+          <ul class="diff-list">
+            <li>Business advice that ignores identity</li>
+            <li>Templates that require you to be palatable</li>
+            <li>Get-rich-quick schemes or growth hacking</li>
+            <li>A passive course library you consume alone</li>
+            <li>A place where you need to tone yourself down</li>
+          </ul>
+        </div>
+        <div class="diff-column good">
+          <div class="diff-label">This Is</div>
+          <ul class="diff-list">
+            <li>Strategy that centers your full identity</li>
+            <li>Building power without erasing yourself</li>
+            <li>Real mentorship and daily founder presence</li>
+            <li>A community that gets the unique challenges we face</li>
+            <li>A room where complexity is welcomed, not flattened</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Makes This Different -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <h2 class="section-title">What Makes This Different</h2>
+      </div>
+      
+      <p class="content-block">
+        Most online communities promise transformation but deliver pre-recorded videos and a dead forum. You join, the founders disappear after launch, and you're left with a Slack channel nobody checks and content that doesn't quite fit your reality.
+      </p>
+      
+      <p class="content-block">
+        We built Differently because we needed something else — a space where learning happens in real time, where the people teaching are actually present, and where the curriculum emerges from what you're dealing with right now, not what someone guessed you might need six months ago.
+      </p>
+      
+      <div class="difference-grid">
+        <div class="diff-column bad">
+          <div class="diff-label">Most Communities</div>
+          <ul class="diff-list">
+            <li>Pre-recorded content libraries</li>
+            <li>Founders vanish after launch</li>
+            <li>Dead forums nobody checks</li>
+            <li>One-size-fits-all curriculum</li>
+            <li>Built for a generic "everyone"</li>
+          </ul>
+        </div>
+        <div class="diff-column good">
+          <div class="diff-label">Differently</div>
+          <ul class="diff-list">
+            <li>Founders present 5 days a week</li>
+            <li>Live mentorship, not just content</li>
+            <li>Real-time feedback on your actual work</li>
+            <li>Built by and for LGBTQIA+ leaders</li>
+            <li>Curriculum that evolves with real needs</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="callout">
+        At <strong>5 days a week</strong> of live founder access, you're not buying a course — you're joining a daily practice of leadership and building businesses that feel like yours, with people who understand the terrain.
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Join Us</h2>
+      </div>
+      
+      <p class="pricing-intro">We're launching with founding member pricing — lock in your rate now before it increases.</p>
+      
+      <div class="pricing-grid">
+        <div class="tier selected">
+          <div class="tier-price">$127/mo</div>
+          <div class="tier-members">Founding Member Rate</div>
+        </div>
+        <div class="tier">
+          <div class="tier-price">$147/mo</div>
+          <div class="tier-members">Standard Rate (Soon)</div>
+        </div>
+      </div>
+      
+      <p class="pricing-note">→ Founding members lock in $127/month for life. Standard rate increases to $147-177 after launch.</p>
+      
+      <div class="pricing-calculator" style="text-align: center;">
+        <a href="#" class="cta-button">Join as a Founding Member</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join Us -->
+  <section id="join">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">04</span>
+        <h2 class="section-title">Join Us</h2>
+      </div>
+      
+      <p class="pricing-intro">We're launching with founding member pricing — lock in your rate now before it increases.</p>
+      
+      <div class="pricing-grid">
+        <div class="tier selected">
+          <div class="tier-price">$127/mo</div>
+          <div class="tier-members">Founding Member Rate</div>
+        </div>
+        <div class="tier">
+          <div class="tier-price">$147/mo</div>
+          <div class="tier-members">Standard Rate (Soon)</div>
+        </div>
+      </div>
+      
+      <p class="pricing-note">→ Founding members lock in $127/month for life. Standard rate increases to $147-177 after launch.</p>
+      
+      <div class="pricing-calculator" style="text-align: center; margin-top: 32px;">
+        <a href="https://www.skool.com/differently-9239" class="cta-button" target="_blank">Join as a Founding Member</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You Get -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">05</span>
+        <h2 class="section-title">What You Get</h2>
+      </div>
+      
+      <div class="structure-grid">
+        <div class="structure-box free">
+          <div class="structure-label">
+            <span>Free Access</span>
+            <span class="price">$0</span>
+          </div>
+          <ul class="structure-list">
+            <li>Community discussions</li>
+            <li>Intro content and resources</li>
+            <li>Weekly group conversations</li>
+            <li>See if this is your people</li>
+          </ul>
+        </div>
+        <div class="structure-box paid">
+          <div class="structure-label">
+            <span>Full Membership</span>
+            <span class="price">$127/mo</span>
+          </div>
+          <ul class="structure-list">
+            <li>Daily live access to founders (5 days/week)</li>
+            <li>Real-time feedback on your work</li>
+            <li>Peer mentorship and collaboration</li>
+            <li>Courses built from what you actually need</li>
+            <li>Accountability and implementation support</li>
+          </ul>
+        </div>
+      </div>
+      
+      <p class="pricing-note">The gap isn't information — it's implementation, access, and a room that speaks your language.</p>
+    </div>
+  </section>
+
+  <!-- Beyond Membership -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-number">06</span>
+        <h2 class="section-title">Beyond Membership</h2>
+      </div>
+      
+      <p class="pricing-intro">Community membership is the foundation. As we grow together, more emerges based on what you actually need.</p>
+      
+      <div class="growth-stack">
+        <div class="growth-layer">
+          <div class="growth-name">Now</div>
+          <div class="growth-desc">Daily community + live founder access</div>
+          <div class="growth-price">$127/mo</div>
+        </div>
+        <div class="growth-layer">
+          <div class="growth-name">Soon</div>
+          <div class="growth-desc">Standalone courses built from real questions</div>
+          <div class="growth-price">TBD</div>
+        </div>
+        <div class="growth-layer">
+          <div class="growth-name">Future</div>
+          <div class="growth-desc">Cohort intensives for deeper work</div>
+          <div class="growth-price">TBD</div>
+        </div>
+        <div class="growth-layer">
+          <div class="growth-name">VIP</div>
+          <div class="growth-desc">High-touch support for those who want more</div>
+          <div class="growth-price">TBD</div>
+        </div>
+      </div>
+      
+      <p class="pricing-note">We're building with you, not for you. What comes next depends on what the community needs.</p>
+    </div>
+  </section>
+
+  <!-- Bottom Line -->
+  <div class="bottom-line">
+    <div class="container">
+      <div class="bottom-line-label">Ready to Join?</div>
+      <div class="bottom-line-main">Stop shrinking yourself. Build a business that feels like you.</div>
+      <div class="bottom-line-sub">Join Differently — where daily founder presence, real feedback, and peer support aren't just promises, they're the foundation. Founding member rate: $127/month.</div>
+      <div style="margin-top: 32px;">
+        <a href="https://www.skool.com/differently-9239" class="cta-button" target="_blank">Become a Founding Member</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>January 2025</p>
+    </div>
+  </footer>
+
+  <!-- Sticky Bottom CTA Bar -->
+  <div class="sticky-cta-bar">
+    <div class="sticky-cta-content">
+      <div class="sticky-cta-text">Join Differently</div>
+      <div class="sticky-cta-price">Founding Member Rate: $127/mo</div>
+    </div>
+    <a href="https://www.skool.com/differently-9239" class="cta-button" target="_blank">Join Now</a>
+  </div>
+
+</body>
+</html>
